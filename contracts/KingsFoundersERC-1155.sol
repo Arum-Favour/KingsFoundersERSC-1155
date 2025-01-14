@@ -10,6 +10,7 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
     
     uint256 public publicPrice = 0.01 ether;
+    uint256 public maxSupply = 1;
 
     constructor(address initialOwner)
         ERC1155("ipfs://QmY5rPqGTN1rZxMQg2ApiSZc7JiBNs1ryDzXPZpQhC1ibm/")
@@ -33,6 +34,7 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
         payable 
     {
         require(msg.value == publicPrice * amount, "WRONG! not enough money sent");
+        require(totalSupply(id) + amount <= maxSupply, "SORRY! we have minted out");
         _mint(msg.sender, id, amount, "");
     }
 

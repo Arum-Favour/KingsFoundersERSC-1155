@@ -405,6 +405,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "maxSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -1028,11 +1041,11 @@
 			]
 		},
 		"contracts/KingsFoundersERC-1155.sol": {
-			"keccak256": "0x2b497261963584fb3eecd8a9e09e2b96e1731fe9769184a391dde86b59c5ef21",
+			"keccak256": "0x8b5ab2af92583d55d5b4f369095f5eea5c9dc46462aa1b5ad5bc7e08bda020cf",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d71211ae0da490a8af5bb1fde83c3db314989b6652262b772cd5faa8cba8f844",
-				"dweb:/ipfs/QmZVA9nPQtySgcgwMde7dQF4zacLvL4nCF7FMDjbpYAEcX"
+				"bzz-raw://cb77af300c28176138a5d0fc5ae55e0dc5b0ad62cb95191230f71558262a9bf1",
+				"dweb:/ipfs/QmWjXLJWnu5EBzr2671DbWEWocpcWj331S9nujMP7Bfj1v"
 			]
 		}
 	},
