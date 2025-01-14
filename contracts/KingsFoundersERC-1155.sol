@@ -33,6 +33,7 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
         public
         payable 
     {
+        require(id < 2, "sorry looks like you're trying to mint the wrong nft!");
         require(msg.value == publicPrice * amount, "WRONG! not enough money sent");
         require(totalSupply(id) + amount <= maxSupply, "SORRY! we have minted out");
         _mint(msg.sender, id, amount, "");

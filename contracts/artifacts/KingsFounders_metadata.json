@@ -1041,11 +1041,11 @@
 			]
 		},
 		"contracts/KingsFoundersERC-1155.sol": {
-			"keccak256": "0x8b5ab2af92583d55d5b4f369095f5eea5c9dc46462aa1b5ad5bc7e08bda020cf",
+			"keccak256": "0x083f2a1c3a7d0887ef85d851ac9c960bca2c9a25fe242eafedc7d7fc5af921c1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://cb77af300c28176138a5d0fc5ae55e0dc5b0ad62cb95191230f71558262a9bf1",
-				"dweb:/ipfs/QmWjXLJWnu5EBzr2671DbWEWocpcWj331S9nujMP7Bfj1v"
+				"bzz-raw://809d30a4734ff6f529c0677cd80aef99a9df90b2c56d3be7104eec736ea637d5",
+				"dweb:/ipfs/QmaLtRskZiiTyTxRierimKoqtuYG97HTcUeEVhENc62vYv"
 			]
 		}
 	},
