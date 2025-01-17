@@ -316,6 +316,37 @@
 			{
 				"inputs": [
 					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "allowListMint",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "allowListPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "address",
 						"name": "account",
 						"type": "address"
@@ -1041,11 +1072,11 @@
 			]
 		},
 		"contracts/KingsFoundersERC-1155.sol": {
-			"keccak256": "0x083f2a1c3a7d0887ef85d851ac9c960bca2c9a25fe242eafedc7d7fc5af921c1",
+			"keccak256": "0x020294758877e874b47351091b740295d5392f95d01323a7f3c7b287abe1cb66",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://809d30a4734ff6f529c0677cd80aef99a9df90b2c56d3be7104eec736ea637d5",
-				"dweb:/ipfs/QmaLtRskZiiTyTxRierimKoqtuYG97HTcUeEVhENc62vYv"
+				"bzz-raw://3e504853f2ed3d28b2b085653011721e27389821d6a3788e1ef9e4b5b4d9e3f5",
+				"dweb:/ipfs/QmS6khJ5JMUaURUiGFfVLbhXaC7bLgAyEkaup7Dmh4DGwF"
 			]
 		}
 	},
