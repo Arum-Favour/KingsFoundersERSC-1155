@@ -333,6 +333,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "allowListMintOpen",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "allowListPrice",
 				"outputs": [
 					{
@@ -390,6 +403,24 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "_publicMintOpen",
+						"type": "bool"
+					},
+					{
+						"internalType": "bool",
+						"name": "_allowListMintOpen",
+						"type": "bool"
+					}
+				],
+				"name": "editMintWindows",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -525,6 +556,19 @@
 				"name": "publicMint",
 				"outputs": [],
 				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "publicMintOpen",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -1072,11 +1116,11 @@
 			]
 		},
 		"contracts/KingsFoundersERC-1155.sol": {
-			"keccak256": "0x6b86a8c65b31109f78faef7fef8f14cdfc884be395dc77c4c1e14b48ef834683",
+			"keccak256": "0x553ada6edaadd103fbffea1e76665e607ecf895aab62db24a76c547a9a25eb92",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://1d83939b6df1bbb2392a255d1f73a833a551bf55fefa54c029fabc5d2169e953",
-				"dweb:/ipfs/QmTMZ7gJWPG5Kn6PMLthMzRkHJChhE3y2hGaEtKQBBuKqr"
+				"bzz-raw://5f420981c84d4fcb123289b2cebf884e302225c840edcfc356034cc2c3066777",
+				"dweb:/ipfs/QmPbTUSp2RFpTgDRyzaQKZZXo3AE5yELD8bd8Bov71L3Vi"
 			]
 		}
 	},

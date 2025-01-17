@@ -8,10 +8,12 @@ import {ERC1155Supply} from "@openzeppelin/contracts/token/ERC1155/extensions/ER
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
-    
     uint256 public publicPrice = 0.02 ether;
     uint256 public allowListPrice = 0.01 ether;
     uint256 public maxSupply = 1;
+
+    bool public publicMintOpen = false;
+    bool public allowListMintOpen = true;
 
     constructor(address initialOwner)
         ERC1155("ipfs://QmY5rPqGTN1rZxMQg2ApiSZc7JiBNs1ryDzXPZpQhC1ibm/")
@@ -30,36 +32,59 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
         _unpause();
     }
 
-    function allowListMint(uint256 id, uint256 amount) public payable{
-     require(msg.value == allowListPrice * amount, "INSUFFICIENT funds!");
-      require(totalSupply(id) + amount <= maxSupply, "SORRY! we have minted out");
-      require(id < 2, "sorry looks like you're trying to mint the wrong nft!");
-     _mint(msg.sender, id, amount, "");
+    function editMintWindows(bool _publicMintOpen, bool _allowListMintOpen) external onlyOwner{
+             publicMintOpen = _publicMintOpen  ;
+              allowListMintOpen  =  _allowListMintOpen;
     }
 
-    function publicMint(uint256 id, uint256 amount)
-        public
-        payable 
-    {
-        require(id < 2, "sorry looks like you're trying to mint the wrong nft!");
-        require(msg.value == publicPrice * amount, "WRONG! not enough money sent");
-        require(totalSupply(id) + amount <= maxSupply, "SORRY! we have minted out");
+    function allowListMint(uint256 id, uint256 amount) public payable {
+        require(allowListMintOpen, "AllowList not yet Open!");
+        require(msg.value == allowListPrice * amount, "INSUFFICIENT funds!");
+        require(
+            totalSupply(id) + amount <= maxSupply,
+            "SORRY! we have minted out"
+        );
+        require(
+            id < 2,
+            "sorry looks like you're trying to mint the wrong nft!"
+        );
         _mint(msg.sender, id, amount, "");
     }
 
-    function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
-        public
-        onlyOwner
-    {
+    function publicMint(uint256 id, uint256 amount) public payable {
+        require(publicMintOpen, "Public Mint is closed");
+        require(
+            id < 2,
+            "sorry looks like you're trying to mint the wrong nft!"
+        );
+        require(
+            msg.value == publicPrice * amount,
+            "WRONG! not enough money sent"
+        );
+        require(
+            totalSupply(id) + amount <= maxSupply,
+            "SORRY! we have minted out"
+        );
+        _mint(msg.sender, id, amount, "");
+    }
+
+    function mintBatch(
+        address to,
+        uint256[] memory ids,
+        uint256[] memory amounts,
+        bytes memory data
+    ) public onlyOwner {
         _mintBatch(to, ids, amounts, data);
     }
 
     // The following functions are overrides required by Solidity.
 
-    function _update(address from, address to, uint256[] memory ids, uint256[] memory values)
-        internal
-        override(ERC1155, ERC1155Pausable, ERC1155Supply)
-    {
+    function _update(
+        address from,
+        address to,
+        uint256[] memory ids,
+        uint256[] memory values
+    ) internal override(ERC1155, ERC1155Pausable, ERC1155Supply) {
         super._update(from, to, ids, values);
     }
 }
