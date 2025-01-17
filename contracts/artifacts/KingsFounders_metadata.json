@@ -487,6 +487,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "maxPerWallet",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "maxSupply",
 				"outputs": [
 					{
@@ -808,6 +821,19 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_addr",
+						"type": "address"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -1148,11 +1174,11 @@
 			]
 		},
 		"contracts/KingsFoundersERC-1155.sol": {
-			"keccak256": "0xd1be05ae95c43b4a0011fd8940d8762cb73fa6178fda0fb036b724b73f187bc6",
+			"keccak256": "0x6d117ec1a76e59ae770d390a5e25f82ff912b1f0bfca7d948708bb163abbd042",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c47e3e3c9b126de74a05cf66f8b730aadb18329c15565ee44daa09d8d40e8357",
-				"dweb:/ipfs/QmZtHPE22HiFAdD2wfySyZ35dvkZw9YAhqy2Aumnfwbz1d"
+				"bzz-raw://4ac33125834541c0746253742a37be0c20252b3ca0e9527f1e9a5e49a608baaf",
+				"dweb:/ipfs/QmdLyMCASDnmZXbPa8nQkhYDpjTDXXeZYPBmxbkqPoh13H"
 			]
 		}
 	},

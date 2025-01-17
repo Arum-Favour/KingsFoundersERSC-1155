@@ -11,6 +11,7 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
     uint256 public publicPrice = 0.02 ether;
     uint256 public allowListPrice = 0.01 ether;
     uint256 public maxSupply = 1;
+    uint public maxPerWallet = 3;
 
     bool public publicMintOpen = false;
     bool public allowListMintOpen = true;
@@ -75,6 +76,11 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
             "SORRY! we have minted out"
         );
         _mint(msg.sender, id, amount, "");
+    }
+
+    function withdraw(address _addr) external onlyOwner{
+        uint balance = address(this).balance;
+        payable(_addr).transfer(balance);
     }
 
     function mintBatch(
