@@ -16,7 +16,8 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
     bool public publicMintOpen = false;
     bool public allowListMintOpen = true;
 
-    mapping (address => bool) public allowList;
+    mapping (address => bool) allowList;
+    mapping (address => uint256) purchasesPerWallet;
 
     constructor(address initialOwner)
         ERC1155("ipfs://QmY5rPqGTN1rZxMQg2ApiSZc7JiBNs1ryDzXPZpQhC1ibm/")
@@ -63,6 +64,7 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
 
     function publicMint(uint256 id, uint256 amount) public payable {
         require(publicMintOpen, "Public Mint is closed");
+        require(purchasesPerWallet[msg.sender] + amount <= maxPerWallet, "Max mint for wallet reached");
         require(
             id < 2,
             "sorry looks like you're trying to mint the wrong nft!"
@@ -75,6 +77,7 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
             totalSupply(id) + amount <= maxSupply,
             "SORRY! we have minted out"
         );
+        purchasesPerWallet[msg.sender] += amount;
         _mint(msg.sender, id, amount, "");
     }
 
