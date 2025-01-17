@@ -15,6 +15,8 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
     bool public publicMintOpen = false;
     bool public allowListMintOpen = true;
 
+    mapping (address => bool) public allowList;
+
     constructor(address initialOwner)
         ERC1155("ipfs://QmY5rPqGTN1rZxMQg2ApiSZc7JiBNs1ryDzXPZpQhC1ibm/")
         Ownable(initialOwner)
@@ -37,8 +39,15 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
               allowListMintOpen  =  _allowListMintOpen;
     }
 
+    function setAllowList(address[] calldata addresses) external onlyOwner{
+        for(uint256 i = 0; i < addresses.length; i++){
+            allowList[addresses[i]] = true;
+        }
+    }
+
     function allowListMint(uint256 id, uint256 amount) public payable {
         require(allowListMintOpen, "AllowList not yet Open!");
+        require(allowList[msg.sender], "You're not in the allowList");
         require(msg.value == allowListPrice * amount, "INSUFFICIENT funds!");
         require(
             totalSupply(id) + amount <= maxSupply,

@@ -316,6 +316,25 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "allowList",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
 						"internalType": "uint256",
 						"name": "id",
 						"type": "uint256"
@@ -653,6 +672,19 @@
 					}
 				],
 				"name": "safeTransferFrom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "addresses",
+						"type": "address[]"
+					}
+				],
+				"name": "setAllowList",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -1116,11 +1148,11 @@
 			]
 		},
 		"contracts/KingsFoundersERC-1155.sol": {
-			"keccak256": "0x553ada6edaadd103fbffea1e76665e607ecf895aab62db24a76c547a9a25eb92",
+			"keccak256": "0xd1be05ae95c43b4a0011fd8940d8762cb73fa6178fda0fb036b724b73f187bc6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5f420981c84d4fcb123289b2cebf884e302225c840edcfc356034cc2c3066777",
-				"dweb:/ipfs/QmPbTUSp2RFpTgDRyzaQKZZXo3AE5yELD8bd8Bov71L3Vi"
+				"bzz-raw://c47e3e3c9b126de74a05cf66f8b730aadb18329c15565ee44daa09d8d40e8357",
+				"dweb:/ipfs/QmZtHPE22HiFAdD2wfySyZ35dvkZw9YAhqy2Aumnfwbz1d"
 			]
 		}
 	},
