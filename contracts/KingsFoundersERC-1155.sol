@@ -20,9 +20,10 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply, Paym
     mapping (address => bool) allowList;
     mapping (address => uint256) purchasesPerWallet;
 
-    constructor(address[] memory _payees, uint256[] memory _shares)
+    constructor(address initialOwner, address[] memory _payees, uint256[] memory _shares)
         ERC1155("ipfs://QmY5rPqGTN1rZxMQg2ApiSZc7JiBNs1ryDzXPZpQhC1ibm/")
-        PaymentSplitter(_payees, _shares);
+        Ownable(initialOwner)
+        PaymentSplitter(_payees, _shares)
     {}
 
     function setURI(string memory newuri) public onlyOwner {
