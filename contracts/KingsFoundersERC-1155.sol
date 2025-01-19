@@ -6,8 +6,9 @@ import {ERC1155} from "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import {ERC1155Pausable} from "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Pausable.sol";
 import {ERC1155Supply} from "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/finance/PaymentSplitter.sol";
 
-contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
+contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply, PaymentSplitter {
     uint256 public publicPrice = 0.02 ether;
     uint256 public allowListPrice = 0.01 ether;
     uint256 public maxSupply = 1;
@@ -19,9 +20,9 @@ contract KingsFounders is ERC1155, Ownable, ERC1155Pausable, ERC1155Supply {
     mapping (address => bool) allowList;
     mapping (address => uint256) purchasesPerWallet;
 
-    constructor(address initialOwner)
+    constructor(address[] memory _payees, uint256[] memory _shares)
         ERC1155("ipfs://QmY5rPqGTN1rZxMQg2ApiSZc7JiBNs1ryDzXPZpQhC1ibm/")
-        Ownable(initialOwner)
+        PaymentSplitter(_payees, _shares);
     {}
 
     function setURI(string memory newuri) public onlyOwner {
